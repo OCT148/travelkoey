@@ -24,8 +24,8 @@
             }
 
         button {
-            width: 20%;
-            padding: 9px 5px;
+            width: 15%;
+            padding: 6px 5px;
             cursor:pointer;
             border:none;
             color:#ffffff;
@@ -57,7 +57,7 @@
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-form-label text-md-end">Password</label>
                                     <div class="col-md-6">
-                                        <input type="password" name="usr" class="form-control"/> 
+                                        <input type="password" name="pass" class="form-control"/> 
                                     </div>
                                 </div>
                                 

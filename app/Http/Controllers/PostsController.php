@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PagesController extends Controller
+class PostsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,23 +23,8 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function home()
+    public function show()
     {
-        return view('pages.home');
-    }
-
-    public function login()
-    {
-        return view('pages.login');
-    }
-
-    public function register()
-    {
-        return view('pages.register');
-    }
-
-    public function category()
-    {
-        return view('pages.category');
+        return view('posts.show');
     }
 }
