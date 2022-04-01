@@ -11,22 +11,17 @@ class PagesController extends Controller
      *
      * @return void
      */
-    /*
+    
     public function __construct()
     {
         $this->middleware('auth');
     }
-    */
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function home()
-    {
-        return view('pages.home');
-    }
 
     public function login()
     {
@@ -41,5 +36,10 @@ class PagesController extends Controller
     public function category()
     {
         return view('pages.category');
+    }
+
+    public function profile()
+    {
+        return view('pages.profile');
     }
 }

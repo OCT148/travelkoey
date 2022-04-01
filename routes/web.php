@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LocationsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +21,7 @@ Route::get('/', function () {
  
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\PagesController::class, 'home']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'home']);
 
 Route::get('/login', [App\Http\Controllers\PagesController::class, 'login']);
 
@@ -27,14 +29,14 @@ Route::get('/register', [App\Http\Controllers\PagesController::class, 'register'
 
 Route::get('/category', [App\Http\Controllers\PagesController::class, 'category']);
 
+Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile']);
+
 Route::get('/category/alam', [App\Http\Controllers\CategoryController::class, 'alam']);
-
 Route::get('/category/kerajinan', [App\Http\Controllers\CategoryController::class, 'kerajinan']);
-
 Route::get('/category/pendidikan', [App\Http\Controllers\CategoryController::class, 'pendidikan']);
-
 Route::get('/category/religi', [App\Http\Controllers\CategoryController::class, 'religi']);
-
 Route::get('/category/sejarah', [App\Http\Controllers\CategoryController::class, 'sejarah']);
 
-Route::get('posts/show', [App\Http\Controllers\PostsController::class, 'show']);
+Route::resource('locations', LocationsController::class);
+
+Auth::routes();

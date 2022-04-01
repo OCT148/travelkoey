@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Home</h1>
+    <h1>Daftar Wisata</h1>
     @if(count($locations) > 0)
         @foreach($locations as $location)
             <div class="well">

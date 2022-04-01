@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Location;
+use Illuminate\Support\Facades\Auth;
 
-class PostsController extends Controller
+
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,8 +26,13 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function show()
+    public function home()
     {
-        return view('posts.show');
+        $locations = Location::orderBy('updated_at', 'desc')->paginate(2);
+        
+        if (Auth::check()) {
+            return view('home')->with('locations', $locations );
+        }
+        return view('welcome');
     }
 }
