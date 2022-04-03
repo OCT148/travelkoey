@@ -10,17 +10,5 @@
         <div>
             <p>{!!$location->body!!}</p>
         </div>
-        <div class="row">
-            <div class="col-md-1 col-sm-1">
-                <a href="{{$location->id}}/edit" class="btn btn-warning">Edit</a>
-            </div>
-            <div class="col-md-1 col-sm-1">
-                <form action="{{route('locations.destroy', $location->id)}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </div>
-        </div>
     </div>
 @endsection

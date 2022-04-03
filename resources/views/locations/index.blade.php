@@ -1,23 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Daftar Wisata</h1>
+    <h1>Daftar Tempat Wisata</h1>
+    <a href="/locations/create" class="btn btn-success" style="margin: 10px 0px">Masukan Tempat Wisata</a>
     @if(count($locations) > 0)
-        @foreach($locations as $location)
-            <div class="well">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <a href="/locations/{{$location->id}}"><img src="{{ url('storage/images/'.$location->image) }}" alt="image" style="width: 300px; height: 150px"></a>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <h3><a href="/locations/{{$location->id}}">{{$location->title}}</a></h3>
-                        <small>{{$location->description}}</small>
-                    </div>
-                    <a class ="category" href="/category/{{$location->category}}" style="text-decoration: none; color: white">{{ucfirst(trans($location->category))}}</a>
-                </div>
-            </div>
-        @endforeach
-        {{$locations->links()}}
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Nama Tempat</th>
+                <th>Kategori</th>
+                <th>Aksi</th>
+            </tr>
+            @foreach($locations as $location)
+                <tr>
+                    <td class="col-md-1">{{$location->id}}</td>
+                    <td class="col-md-3"><a href="/locations/{{$location->id}}">{{$location->title}}</a></td>
+                    <td class="col-md-1"><a class ="category" href="/category/{{$location->category}}" style="text-decoration: none; color: white">{{ucfirst(trans($location->category))}}</a></td>
+                    <td class="row col-md-1">
+                        <div class="col-md-6">
+                            <a href="locations/{{$location->id}}/edit" class="btn btn-warning">Edit</a>
+                        </div>
+                        <div>
+                            <form action="{{route('locations.destroy', $location->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </th>
+                </tr>
+            @endforeach
     @else
         <p>Daftar Kosong</p>
     @endif

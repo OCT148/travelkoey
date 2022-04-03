@@ -14,7 +14,7 @@ class LocationsController extends Controller
      */
     public function index()
     {
-        $locations = Location::orderBy('updated_at', 'desc')->paginate(2);
+        $locations = Location::orderBy('id', 'asc')->get();
         return view('locations.index')->with('locations', $locations );
     }
 
