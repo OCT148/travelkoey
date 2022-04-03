@@ -5,12 +5,10 @@
                 <img src="{{asset('logo.png')}}" alt="image" width="160" height="30">
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" >
-                @if(!Auth::guest())
-                    <li><a href="/category" class="nav-link px-2 link-dark">Kategori Tempat Wisata</a></li>
-                    <li><a href="#" class="nav-link px-2 link-dark">Agenda Kegiatan</a></li>
-                    <li><a href="#" class="nav-link px-2 link-dark">Peta Jalur Lokasi</a></li>
-                    <li><a href="#" class="nav-link px-2 link-dark">Wishlist Wisata</a></li>
-                @endif
+                <li><a href="/category" class="nav-link px-2 link-dark">Kategori Tempat Wisata</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">Agenda Kegiatan</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">Peta Jalur Lokasi</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">Wishlist Wisata</a></li>
             </ul>
 
             <ul class="nav justify-content-center mb-md-0" style="float: right">
@@ -27,6 +25,9 @@
                         </li>
                     @endif
                 @else
+                    @if(Auth::user()->id == 1)
+                        <li><a href="/locations" class="nav-link px-2 link-dark">Daftar Tempat Wisata</a></li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}

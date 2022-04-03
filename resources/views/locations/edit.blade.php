@@ -2,9 +2,14 @@
 
 @section('content')
     <h1 >Edit Tempat Wisata</h1>
-    <form action="{{route('locations.update', $location->id)}}" method="POST">
+    <form runat="server" action="{{route('locations.update', $location->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+        <div class="form-group">
+            <label>Cover</label>
+            <input type="file" name="image" id="image">
+            <img src="{{ url('storage/images/'.$location->image) }}" id="previewImage" style="width: 480px; height: 360px;border: 1px solid black"/>
+        </div>
         <div class="form-group">
             <label>Judul</label>
             <input type="text" id="title" name="title" class="form-control"  value="{{ old('title', $location->title) }}"/> 
@@ -48,5 +53,12 @@
         $(document).ready(function () {
             $('.ckeditor').ckeditor();
         });
+
+        image.onchange = evt => {
+            const [file] = image.files
+            if (file) {
+                previewImage.src = URL.createObjectURL(file)
+            }
+        }
     </script>
 @endsection
