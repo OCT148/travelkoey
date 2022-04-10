@@ -10,5 +10,12 @@
         <div>
             <p>{!!$location->body!!}</p>
         </div>
+        <div style="text-align: right">
+            @if (auth()->user()->locations->contains($location->id))
+                <a href="/wishlists/{{$location->id}}/remove" class="btn btn-primary">Hapus dari Wishlist</a>
+            @else
+                <a href="/wishlists/{{$location->id}}" class="btn btn-primary">Tambah ke Wishlist</a>
+            @endif
+        </div>
     </div>
 @endsection

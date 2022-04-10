@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <img src="{{asset('Banner depan.jpeg')}}" style="width: 200px; height: 50px">
+    <h1>Wishlist Wisata</h1>
     <hr>
-    @if(count($locations) > 0)
+    @if(auth()->user()->locations->pluck('location_id')->count() > 0)
         @foreach($locations as $location)
             <div class="well">
                 <div class="row">
@@ -18,7 +18,6 @@
                 </div>
             </div>
         @endforeach
-        {{$locations->links()}}
     @else
         <p>Daftar Kosong</p>
     @endif

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Location;
 
 class CategoryController extends Controller
 {
@@ -25,24 +26,29 @@ class CategoryController extends Controller
      */
     public function alam()
     {
-        return view('pages.category.alam');
+        $locations = Location::orderBy('updated_at', 'desc')->where('category', 'alam')->paginate(5);
+        return view('pages.category.alam')->with('locations', $locations );
     }
 
     public function kerajinan()
     {
-        return view('pages.category.kerajinan');
+        $locations = Location::orderBy('updated_at', 'desc')->where('category', 'kerajinan')->paginate(5);
+        return view('pages.category.kerajinan')->with('locations', $locations );;
     }
 
     public function pendidikan()
     {
-        return view('pages.category.pendidikan');
+        $locations = Location::orderBy('updated_at', 'desc')->where('category', 'pendidikan')->paginate(5);
+        return view('pages.category.pendidikan')->with('locations', $locations );;
     }
     public function religi()
     {
-        return view('pages.category.religi');
+        $locations = Location::orderBy('updated_at', 'desc')->where('category', 'religi')->paginate(5);
+        return view('pages.category.religi')->with('locations', $locations );;
     }
     public function sejarah()
     {
-        return view('pages.category.sejarah');
+        $locations = Location::orderBy('updated_at', 'desc')->where('category', 'sejarah')->paginate(5);
+        return view('pages.category.sejarah')->with('locations', $locations );;
     }
 }

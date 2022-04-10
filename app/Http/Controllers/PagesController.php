@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Location;
+use App\Models\User;
 
 class PagesController extends Controller
 {
@@ -41,5 +43,16 @@ class PagesController extends Controller
     public function profile()
     {
         return view('pages.profile');
+    }
+
+    public function peta()
+    {
+        return view('pages.peta');
+    }
+
+    public function wishlist()
+    {
+        $locations = auth()->user()->locations()->get();
+        return view('pages.wishlist')->with('locations', $locations );
     }
 }

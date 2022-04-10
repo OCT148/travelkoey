@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LocationsController;
+use App\Http\Controllers\WishlistsController;
+use App\Models\Location;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +21,6 @@ use App\Http\Controllers\LocationsController;
 Route::get('/', function () {
     return view('welcome');
 });
- 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'home']);
 
@@ -31,6 +32,10 @@ Route::get('/category', [App\Http\Controllers\PagesController::class, 'category'
 
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile']);
 
+Route::get('/peta', [App\Http\Controllers\PagesController::class, 'peta']);
+
+Route::get('/wishlist', [App\Http\Controllers\PagesController::class, 'wishlist']);
+
 Route::get('/category/alam', [App\Http\Controllers\CategoryController::class, 'alam']);
 Route::get('/category/kerajinan', [App\Http\Controllers\CategoryController::class, 'kerajinan']);
 Route::get('/category/pendidikan', [App\Http\Controllers\CategoryController::class, 'pendidikan']);
@@ -38,5 +43,15 @@ Route::get('/category/religi', [App\Http\Controllers\CategoryController::class, 
 Route::get('/category/sejarah', [App\Http\Controllers\CategoryController::class, 'sejarah']);
 
 Route::resource('locations', LocationsController::class);
+
+Route::get('/wishlists/{location}', function(Location $location){
+    auth()->user()->locations()->attach($location);
+    return back();
+});
+
+Route::get('/wishlists/{location}/remove', function(Location $location){
+    auth()->user()->locations()->detach($location);
+    return back();
+});
 
 Auth::routes();
