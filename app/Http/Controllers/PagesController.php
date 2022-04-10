@@ -45,11 +45,6 @@ class PagesController extends Controller
         return view('pages.profile');
     }
 
-    public function peta()
-    {
-        return view('pages.peta');
-    }
-
     public function wishlist()
     {
         $locations = auth()->user()->locations()->get();
