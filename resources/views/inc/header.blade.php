@@ -6,9 +6,13 @@
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" >
                 <li><a href="/category" class="nav-link px-2 link-dark">Kategori Tempat Wisata</a></li>
+<<<<<<< Updated upstream
+                <li><a href="/agenda" class="nav-link px-2 link-dark">Agenda Kegiatan</a></li>
+                <li><a href="/wishlist" class="nav-link px-2 link-dark">Wishlist Wisata</a></li>
+=======
                 <li><a href="#" class="nav-link px-2 link-dark">Agenda Kegiatan</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">Peta Jalur Lokasi</a></li>
                 <li><a href="#" class="nav-link px-2 link-dark">Wishlist Wisata</a></li>
+>>>>>>> Stashed changes
             </ul>
 
             <ul class="nav justify-content-center mb-md-0" style="float: right">
