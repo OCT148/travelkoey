@@ -12,6 +12,12 @@ class LocationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isAdmin']);
+    }
+
     public function index()
     {
         $locations = Location::orderBy('id', 'asc')->get();

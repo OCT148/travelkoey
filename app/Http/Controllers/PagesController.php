@@ -45,6 +45,11 @@ class PagesController extends Controller
         return view('pages.profile');
     }
 
+    public function agenda()
+    {
+        return view('pages.agenda');
+    }
+
     public function wishlist()
     {
         $locations = auth()->user()->locations()->get();
