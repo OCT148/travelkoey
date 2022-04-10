@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function home()
     {
-        $locations = Location::orderBy('updated_at', 'desc')->paginate(2);
+        $locations = Location::orderBy('created_at', 'desc')->paginate(5);
         
         if (Auth::check()) {
             return view('home')->with('locations', $locations );

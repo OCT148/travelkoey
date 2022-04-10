@@ -32,7 +32,7 @@ Route::get('/category', [App\Http\Controllers\PagesController::class, 'category'
 
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile']);
 
-Route::get('/peta', [App\Http\Controllers\PagesController::class, 'peta']);
+Route::get('/agenda', [App\Http\Controllers\PagesController::class, 'agenda']);
 
 Route::get('/wishlist', [App\Http\Controllers\PagesController::class, 'wishlist']);
 

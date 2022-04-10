@@ -18,7 +18,9 @@
             </div>
         </div>
     @endforeach
-    {{$locations->links()}}
+    <div class="d-flex">  
+        {{$locations->links()}}
+    </div>
     @else
         <p>Daftar Kosong</p>
     @endif
